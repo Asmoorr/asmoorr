@@ -2,7 +2,7 @@
 
 ## 💫 About Me
 
-🔭 I’m currently working on a project in AIM.club, ITMO University
+🔭 I’m currently working on a project in AIM.club, ITMO University  
 🎓 ITMO University Student  
 📫 How to reach me: t.me/asmorr  
 👯 I’m looking to collaborate on any web project you would like :)  
