@@ -11,6 +11,8 @@
 💬 Ask me about anything you want  
 ⚡ Fun fact: I love cats and guitars
 
+<img src="https://raw.githubusercontent.com/asmoorr/asmoorr/output/snake.svg" alt="Snake animation" />
+
 ## 💻 Tech Stack
 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -45,14 +47,6 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=asmoorr&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
 </div>
 
-###
 
-###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/asmoorr/asmoorr/output/snake.svg" alt="Snake animation" />
-
-###
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
