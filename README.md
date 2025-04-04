@@ -1,13 +1,15 @@
-# Hello everyone :)
+<h2 align="left">Hi 👋! My name is Artem and I'm a student from ITMO University</h2>
 
 ## 💫 About Me
 
-🔭 I’m currently working on a project in AIM.club, ITMO University  
+🔭 I’m currently working on a project in AIM.club, ITMO University
+🎓 ITMO University Student  
+📫 How to reach me: t.me/asmorr  
 👯 I’m looking to collaborate on any web project you would like :)  
 🤝 I’m looking for help with living this life  
 🌱 I’m currently learning everything about web development  
 💬 Ask me about anything you want  
-⚡ Fun fact: I love cats and guitars  
+⚡ Fun fact: I love cats and guitars
 
 ## 💻 Tech Stack
 
@@ -38,15 +40,19 @@
 
 ## 📊 GitHub Stats
 
-![Github Stats](https://github-readme-stats.vercel.app/api?username=asmoorr&theme=dracula&hide_border=false&include_all_commits=true&count_private=true)  
-![More github stats](https://nirzak-streak-stats.vercel.app/?user=asmoorr&theme=dracula&hide_border=false)  
-![And more github stats](https://github-readme-stats.vercel.app/api/top-langs/?username=asmoorr&theme=dracula&hide_border=false&include_all_commits=true&count_private=true&layout=compact)  
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=maurodesouza&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=maurodesouza&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
+</div>
 
-## 🏆 GitHub Trophies
+###
 
-![My trophies](https://github-profile-trophy.vercel.app/?username=asmoorr&theme=gruvbox&no-frame=false&no-bg=true&margin-w=4)
+###
 
----
-[![Visitor counter](https://visitcount.itsvg.in/api?id=asmoorr&icon=7&color=5)](https://visitcount.itsvg.in)
+<br clear="both">
+
+<img src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/snake.svg" alt="Snake animation" />
+
+###
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
