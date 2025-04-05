@@ -1,15 +1,12 @@
-<h2 align="left">Hi 👋! My name is Artem and I'm a student from ITMO University</h2>
+<h1 align="left">Hi 👋! My name is Artem and I'm a student from ITMO University</h1>
 
 ## 💫 About Me
 
-🔭 I’m currently working on a project in AIM.club, ITMO University  
-🎓 ITMO University Student  
-📫 How to reach me: t.me/asmorr  
-👯 I’m looking to collaborate on any web project you would like :)  
-🤝 I’m looking for help with living this life  
-🌱 I’m currently learning everything about web development  
-💬 Ask me about anything you want  
-⚡ Fun fact: I love cats and guitars
+- 👀 I’m interested in Web Development
+- 🌱 I’m currently learning everything about web development
+- ⚡ Fun fact: I love cats and guitars
+- 📫 How to reach me: t.me/asmorr
+- 💻 I write code in Python & JavaScript
 
 <img src="https://raw.githubusercontent.com/asmoorr/asmoorr/output/snake.svg" alt="Snake animation" />
 
@@ -42,9 +39,13 @@
 
 ## 📊 GitHub Stats
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%">
   <img src="https://github-readme-stats.vercel.app/api?username=asmoorr&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=asmoorr&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph" />
+</div>
+
+&nbsp;<div align="center">
+  [![Visits](https://komarev.com/ghpvc/?username=novatorem&logo=GitHub&label=github%20visits&color=336699&logoColor=white&style=flat-square)](https://github.com/novatorem)
 </div>
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
