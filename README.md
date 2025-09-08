@@ -21,8 +21,8 @@
 
 ## ⭐ GitHub Profile Stats
 <div align="center" style="display:flex; padding: 12px; border-radius: 12px; gap:20px">
-  <img alt="Asmoorr's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Asmoorr&langs_count=20&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&rank_icon=github&size_weight=0.5&count_weight=0.5" style="width:40vw">
-   <img alt="Asmoorr's streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&theme=dark&hide_border=true&short_numbers=true" style="width:40vw; background:#151515">
+  <img alt="Asmoorr's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Asmoorr&langs_count=20&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&rank_icon=github&size_weight=0.5&count_weight=0.5" style="width:30vw">
+   <img alt="Asmoorr's streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&theme=dark&hide_border=true&short_numbers=true" style="width:30vw; background:#151515">
 </div>
 
 
