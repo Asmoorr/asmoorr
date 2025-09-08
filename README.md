@@ -1,6 +1,6 @@
 <h1 align="left">Hi 👋! My name is Artem and I'm a student from ITMO University</h1>
 
-## 💫 About Me
+### 💫 About Me
 
 - 👀 I’m interested in Web Development
 - 🌱 I’m currently learning everything about web development
@@ -10,7 +10,7 @@
 
 <img src="https://raw.githubusercontent.com/asmoorr/asmoorr/output/snake.svg" alt="Snake animation" />
 
-## 💻 Tech Stack
+### 💻 Tech Stack
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -19,10 +19,10 @@
 </p>
 
 
-## ⭐ GitHub Profile Stats
+### ⭐ GitHub Profile Stats
 <div align="center" style="display:flex; padding: 12px; border-radius: 12px; gap:20px">
-  <img alt="Asmoorr's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Asmoorr&langs_count=20&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&rank_icon=github&size_weight=0.5&count_weight=0.5" style="width:30vw">
-   <img alt="Asmoorr's streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&theme=dark&hide_border=true&short_numbers=true" style="width:30vw; background:#151515">
+  <img alt="Asmoorr's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Asmoorr&langs_count=20&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&rank_icon=github&size_weight=0.5&count_weight=0.5" style="width:25vw">
+   <img alt="Asmoorr's streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&theme=dark&hide_border=true&short_numbers=true" style="width:25vw; background:#151515">
 </div>
 
 
