@@ -17,8 +17,11 @@
 </p>
 
 <p align="center">
-  <img width="49%" height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
-  <img width="49%" height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=5.0" alt="Artem's productive time" />
+  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
+</p>
+
+<p align="center">
+  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=5.0" alt="Artem's productive time" />
 </p>
 
 
@@ -29,7 +32,10 @@
   <img alt="Breakout contribution graph" src="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph.svg?game=breakout">
 </picture>
 
-### 💻 Tech Stack
+<details open>
+<summary><strong>Tech Stack</strong> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Green%20Heart.png" alt="Green Heart" width="25" height="25" /></summary>
+
+<br />
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -37,7 +43,12 @@
   </a>
 </p>
 
-### ⭐ GitHub Profile Stats
+</details>
+
+<details open>
+<summary><strong>GitHub Profile Stats</strong> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Alien%20Monster.png" alt="Alien Monster" width="25" height="25" /></summary>
+
+<br />
 
 <p align="center">
   <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=00000000&border=B8E0D8&stroke=B8E0D8&ring=1ABC9C&fire=1ABC9C&currStreakNum=6B7280&sideNums=6B7280&currStreakLabel=1ABC9C&sideLabels=1ABC9C&dates=6B7280&short_numbers=true" />
@@ -48,5 +59,7 @@
     <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=1abc9c&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
   </a>
 </p>
+
+</details>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1abc9c&height=100&section=footer" alt="Profile footer wave" />
