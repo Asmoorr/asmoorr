@@ -1,0 +1,15 @@
+name: Use Mint Circuit theme
+description: Switch the public profile to the mint color scheme
+title: "[Profile Theme] Mint Circuit"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This request changes the profile theme globally for every visitor.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: Switch the profile to Mint Circuit
+          required: true

@@ -1,3 +1,5 @@
+<!-- profile-theme: mint -->
+
 <p align="center">
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
@@ -16,12 +18,30 @@
   </a>
 </p>
 
+<details open>
+<summary><strong>Choose profile theme</strong> 🎨</summary>
+
+<br />
+
 <p align="center">
-  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
+  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-mint.yml">
+    <img src="https://img.shields.io/badge/Mint_Circuit-1ABC9C?style=for-the-badge" alt="Switch to Mint Circuit" />
+  </a>
+  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-violet.yml">
+    <img src="https://img.shields.io/badge/Violet_Dusk-A78BFA?style=for-the-badge" alt="Switch to Violet Dusk" />
+  </a>
+</p>
+
+<p align="center"><sub>The selected theme is applied globally after submitting the request.</sub></p>
+
+</details>
+
+<p align="center">
+  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1ABC9C&text_color=6B7280&border_color=B8E0D8&icon_color=16A085&chart_color=1ABC9C&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
 </p>
 
 <p align="center">
-  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=5.0" alt="Artem's productive time" />
+  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1ABC9C&text_color=6B7280&border_color=B8E0D8&icon_color=16A085&chart_color=1ABC9C&animation=sequence&duration=5.0" alt="Artem's productive time" />
 </p>
 
 
@@ -56,10 +76,10 @@
 
 <p align="center">
   <a href="https://github.com/asmoorr">
-    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=1abc9c&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
+    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=1ABC9C&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
   </a>
 </p>
 
 </details>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1abc9c&height=100&section=footer" alt="Profile footer wave" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1ABC9C&height=100&section=footer" alt="Profile footer wave" />

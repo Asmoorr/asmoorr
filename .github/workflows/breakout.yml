@@ -20,6 +20,9 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
       - name: Generate Breakout contribution graph
         uses: abozanona/pacman-contribution-graph@main
         with:
@@ -28,21 +31,7 @@ jobs:
           hide_month_labels: true
 
       - name: Apply profile color palette
-        shell: bash
-        run: |
-          sed -i \
-            -e 's/#ebedf0/#eaf7f4/g' \
-            -e 's/#9be9a8/#b8e0d8/g' \
-            -e 's/#40c463/#74d3bd/g' \
-            -e 's/#30a14e/#1abc9c/g' \
-            -e 's/#216e39/#16a085/g' \
-            -e 's/#161b22/#151B23/g' \
-            -e 's/#0e4429/#164a40/g' \
-            -e 's/#006d32/#167f6c/g' \
-            -e 's/#26a641/#18a98c/g' \
-            -e 's/#39d353/#1abc9c/g' \
-            dist/breakout-contribution-graph.svg \
-            dist/breakout-contribution-graph-dark.svg
+        run: python scripts/profile_theme.py recolor-breakout dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
 
       - name: Publish contribution graph
         uses: crazy-max/ghaction-github-pages@v3.1.0

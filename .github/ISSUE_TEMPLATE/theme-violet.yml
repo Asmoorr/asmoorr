@@ -1,0 +1,15 @@
+name: Use Violet Dusk theme
+description: Switch the public profile to the violet color scheme
+title: "[Profile Theme] Violet Dusk"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This request changes the profile theme globally for every visitor.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: Switch the profile to Violet Dusk
+          required: true

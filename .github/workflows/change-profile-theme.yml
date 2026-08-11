@@ -1,0 +1,75 @@
+name: Change profile theme
+
+on:
+  issues:
+    types:
+      - opened
+
+concurrency:
+  group: profile-theme-switch
+  cancel-in-progress: false
+
+jobs:
+  change-theme:
+    if: >-
+      github.event.issue.title == '[Profile Theme] Mint Circuit' ||
+      github.event.issue.title == '[Profile Theme] Violet Dusk'
+    permissions:
+      actions: write
+      contents: write
+      issues: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Resolve requested theme
+        id: theme
+        shell: bash
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          case "$ISSUE_TITLE" in
+            "[Profile Theme] Mint Circuit") theme="mint" ;;
+            "[Profile Theme] Violet Dusk") theme="violet" ;;
+            *) exit 1 ;;
+          esac
+          echo "id=$theme" >> "$GITHUB_OUTPUT"
+
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Apply selected theme
+        run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}"
+
+      - name: Commit profile theme
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- README.md .github/profile-theme.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .github/profile-theme.json
+          git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme"
+          git push origin main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate Breakout colors
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run breakout.yml --ref main
+
+      - name: Close theme request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          THEME_NAME: ${{ steps.theme.outputs.id }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "Profile theme switched to **$THEME_NAME**. The Breakout palette may take a minute to refresh."
+          gh issue close "$ISSUE_NUMBER" --reason completed
