@@ -1,33 +1,52 @@
-<h1 align="left">Hi 👋! My name is Artem and I'm a student from ITMO University</h1>
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
+  </a>
+</p>
 
-### 💫 About Me
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula." alt="I'm Artem Trikula." />
+  </a>
+</p>
 
-- 👀 I’m interested in Web Development
-- 🌱 I’m currently learning everything about web development
-- ⚡ Fun fact: I love cats and guitars
-- 📫 How to reach me: t.me/asmorr
-- 💻 I write code in Python & JavaScript
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&width=1000&height=60&lines=Python+Backend+Developer+%C2%B7+ITMO+University+student" alt="Python Backend Developer · ITMO University student" />
+  </a>
+</p>
 
-<img src="https://raw.githubusercontent.com/asmoorr/asmoorr/output/snake.svg" alt="Snake animation" />
+<p align="center">
+  <img width="49%" height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
+  <img width="49%" height="190" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1abc9c&text_color=6b7280&border_color=b8e0d8&icon_color=16a085&chart_color=1abc9c&animation=sequence&duration=5.0" alt="Artem's productive time" />
+</p>
+
+
+
+<picture data-importer="breakout">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph-dark.svg?game=breakout">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph.svg?game=breakout">
+  <img alt="Breakout contribution graph" src="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph.svg?game=breakout">
+</picture>
 
 ### 💻 Tech Stack
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,fastapi,django,git,docker,postgres,github,redis,html,css,js" />
+    <img src="https://skillicons.dev/icons?i=python,fastapi,django,git,docker,postgres,github,redis,html,css,js" alt="Tech stack" />
   </a>
 </p>
 
-
 ### ⭐ GitHub Profile Stats
-<div align="center" style="display:flex; padding: 12px; border-radius: 12px; gap:20px">
-  <img alt="Asmoorr's GitHub stats" src="https://github-readme-stats.vercel.app/api?username=Asmoorr&langs_count=20&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&rank_icon=github&size_weight=0.5&count_weight=0.5" style="width:25vw">
-   <img alt="Asmoorr's streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&theme=dark&hide_border=true&short_numbers=true" style="width:25vw; background:#151515">
-</div>
 
+<p align="center">
+  <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=00000000&border=B8E0D8&stroke=B8E0D8&ring=1ABC9C&fire=1ABC9C&currStreakNum=6B7280&sideNums=6B7280&currStreakLabel=1ABC9C&sideLabels=1ABC9C&dates=6B7280&short_numbers=true" />
+</p>
 
-&nbsp;<div align="center">
-  [![Visits](https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=336699&logoColor=white&style=for-the-badge)](https://github.com/asmoorr)
-</div>
+<p align="center">
+  <a href="https://github.com/asmoorr">
+    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=1abc9c&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
+  </a>
+</p>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1abc9c&height=100&section=footer" alt="Profile footer wave" />
