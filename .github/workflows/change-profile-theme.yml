@@ -52,7 +52,7 @@ jobs:
 
       - name: Apply selected theme
         if: github.event_name == 'issues'
-        run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}"
+        run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}" --cache-key "${{ github.run_id }}"
 
       - name: Generate Breakout contribution graph
         uses: abozanona/pacman-contribution-graph@main
@@ -64,7 +64,16 @@ jobs:
       - name: Apply selected theme to Breakout
         run: python scripts/profile_theme.py recolor-breakout --theme-id "${{ steps.theme.outputs.id }}" dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
 
-      - name: Commit profile theme
+      - name: Publish Breakout contribution graph
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          build_dir: dist
+          target_branch: pacman-output
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit profile theme and cache key
         if: github.event_name == 'issues'
         shell: bash
         run: |
@@ -76,15 +85,6 @@ jobs:
           git add README.md .github/profile-theme.json
           git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme"
           git push origin main
-
-      - name: Publish Breakout contribution graph
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          build_dir: dist
-          target_branch: pacman-output
-          keep_history: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete service theme issue
         if: github.event_name == 'issues'

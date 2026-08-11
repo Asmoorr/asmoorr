@@ -46,7 +46,16 @@ def replace_parameter(url: str, name: str, value: str) -> str:
     return updated
 
 
-def update_widget_url(url: str, colors: dict) -> str:
+def set_parameter(url: str, name: str, value: str) -> str:
+    pattern = rf"([?&]{re.escape(name)}=)[^&\"\s]+"
+    updated, count = re.subn(pattern, rf"\g<1>{value}", url)
+    if count:
+        return updated
+    separator = "&" if "?" in url else "?"
+    return f"{url}{separator}{name}={value}"
+
+
+def update_widget_url(url: str, colors: dict, cache_key: str | None = None) -> str:
     mappings: dict[str, str] = {}
 
     if "readme-typing-svg.demolab.com" in url:
@@ -76,10 +85,13 @@ def update_widget_url(url: str, colors: dict) -> str:
 
     for name, value in mappings.items():
         url = replace_parameter(url, name, value)
+
+    if cache_key and "/pacman-output/breakout-contribution-graph" in url:
+        url = set_parameter(url, "v", cache_key)
     return url
 
 
-def apply_theme(theme_id: str) -> None:
+def apply_theme(theme_id: str, cache_key: str | None = None) -> None:
     theme = load_theme(theme_id)
     colors = theme["colors"]
     readme = README_PATH.read_text(encoding="utf-8")
@@ -93,7 +105,11 @@ def apply_theme(theme_id: str) -> None:
     if marker_count != 1:
         raise ValueError("README profile-theme marker is missing or duplicated")
 
-    readme = re.sub(r"https://[^\"\s>]+", lambda match: update_widget_url(match.group(0), colors), readme)
+    readme = re.sub(
+        r"https://[^\"\s>]+",
+        lambda match: update_widget_url(match.group(0), colors, cache_key),
+        readme,
+    )
     README_PATH.write_text(readme, encoding="utf-8", newline="\n")
     ACTIVE_THEME_PATH.write_text(
         json.dumps({"active": theme_id}, indent=2) + "\n",
@@ -126,6 +142,7 @@ def main() -> None:
 
     apply_parser = subparsers.add_parser("apply")
     apply_parser.add_argument("theme_id")
+    apply_parser.add_argument("--cache-key")
 
     recolor_parser = subparsers.add_parser("recolor-breakout")
     recolor_parser.add_argument("--theme-id")
@@ -133,7 +150,7 @@ def main() -> None:
 
     args = parser.parse_args()
     if args.command == "apply":
-        apply_theme(args.theme_id)
+        apply_theme(args.theme_id, args.cache_key)
     else:
         recolor_breakout(args.paths, args.theme_id)
 
