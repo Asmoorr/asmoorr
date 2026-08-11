@@ -111,8 +111,8 @@ def recolor_svg(path: Path, source: list[str], target: list[str]) -> None:
     path.write_text(content, encoding="utf-8", newline="\n")
 
 
-def recolor_breakout(paths: list[Path]) -> None:
-    theme = load_theme(active_theme_id())
+def recolor_breakout(paths: list[Path], theme_id: str | None = None) -> None:
+    theme = load_theme(theme_id or active_theme_id())
     colors = theme["colors"]
     for path in paths:
         palette = colors["breakout_dark"] if "-dark" in path.stem else colors["breakout_light"]
@@ -128,13 +128,14 @@ def main() -> None:
     apply_parser.add_argument("theme_id")
 
     recolor_parser = subparsers.add_parser("recolor-breakout")
+    recolor_parser.add_argument("--theme-id")
     recolor_parser.add_argument("paths", nargs="+", type=Path)
 
     args = parser.parse_args()
     if args.command == "apply":
         apply_theme(args.theme_id)
     else:
-        recolor_breakout(args.paths)
+        recolor_breakout(args.paths, args.theme_id)
 
 
 if __name__ == "__main__":

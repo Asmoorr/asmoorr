@@ -1,54 +1,74 @@
-name: Change profile theme
+name: Update profile theme and Breakout
 
 on:
   issues:
     types:
       - opened
+  schedule:
+    - cron: "15 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency:
-  group: profile-theme-switch
+  group: profile-theme-and-breakout
   cancel-in-progress: false
 
 jobs:
-  change-theme:
+  update-profile:
     if: >-
+      github.event_name != 'issues' ||
       github.event.issue.title == '[Profile Theme] Mint Circuit' ||
       github.event.issue.title == '[Profile Theme] Violet Dusk'
     permissions:
-      actions: write
       contents: write
-      issues: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
-      - name: Resolve requested theme
-        id: theme
-        shell: bash
-        env:
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-        run: |
-          case "$ISSUE_TITLE" in
-            "[Profile Theme] Mint Circuit") theme="mint" ;;
-            "[Profile Theme] Violet Dusk") theme="violet" ;;
-            *) exit 1 ;;
-          esac
-          echo "id=$theme" >> "$GITHUB_OUTPUT"
-
       - name: Check out profile repository
         uses: actions/checkout@v4
         with:
           ref: main
 
+      - name: Resolve requested theme
+        id: theme
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+        run: |
+          if [[ "$EVENT_NAME" == "issues" ]]; then
+            case "$ISSUE_TITLE" in
+              "[Profile Theme] Mint Circuit") theme="mint" ;;
+              "[Profile Theme] Violet Dusk") theme="violet" ;;
+              *) exit 1 ;;
+            esac
+          else
+            theme="$(python -c 'import json; print(json.load(open(".github/profile-theme.json"))["active"])')"
+          fi
+          echo "id=$theme" >> "$GITHUB_OUTPUT"
+
       - name: Apply selected theme
+        if: github.event_name == 'issues'
         run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}"
 
+      - name: Generate Breakout contribution graph
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: breakout
+          hide_month_labels: true
+
+      - name: Apply selected theme to Breakout
+        run: python scripts/profile_theme.py recolor-breakout --theme-id "${{ steps.theme.outputs.id }}" dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
+
       - name: Commit profile theme
-        id: commit
+        if: github.event_name == 'issues'
         shell: bash
         run: |
           if git diff --quiet -- README.md .github/profile-theme.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -56,20 +76,26 @@ jobs:
           git add README.md .github/profile-theme.json
           git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme"
           git push origin main
-          echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Regenerate Breakout colors
-        if: steps.commit.outputs.changed == 'true'
+      - name: Publish Breakout contribution graph
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          build_dir: dist
+          target_branch: pacman-output
+          keep_history: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run breakout.yml --ref main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Close theme request
+      - name: Delete service theme issue
+        if: github.event_name == 'issues'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          THEME_NAME: ${{ steps.theme.outputs.id }}
+          GH_TOKEN: ${{ secrets.PROFILE_ADMIN_TOKEN }}
+          ISSUE_NODE_ID: ${{ github.event.issue.node_id }}
         run: |
-          gh issue comment "$ISSUE_NUMBER" --body "Profile theme switched to **$THEME_NAME**. The Breakout palette may take a minute to refresh."
-          gh issue close "$ISSUE_NUMBER" --reason completed
+          if [[ -z "$GH_TOKEN" ]]; then
+            echo "::error::Repository secret PROFILE_ADMIN_TOKEN is not configured."
+            exit 1
+          fi
+          gh api graphql \
+            -f query='mutation($issueId: ID!) { deleteIssue(input: {issueId: $issueId}) { clientMutationId } }' \
+            -f issueId="$ISSUE_NODE_ID"
