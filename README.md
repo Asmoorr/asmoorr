@@ -1,20 +1,20 @@
-<!-- profile-theme: mint -->
+<!-- profile-theme: violet -->
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=A78BFA&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula." alt="I'm Artem Trikula." />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=A78BFA&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula." alt="I'm Artem Trikula." />
   </a>
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=1ABC9C&center=true&vCenter=true&width=1000&height=60&lines=Python+Backend+Developer+%C2%B7+ITMO+University+student" alt="Python Backend Developer · ITMO University student" />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=A78BFA&center=true&vCenter=true&width=1000&height=60&lines=Python+Backend+Developer+%C2%B7+ITMO+University+student" alt="Python Backend Developer · ITMO University student" />
   </a>
 </p>
 
@@ -37,11 +37,11 @@
 </details>
 
 <p align="center">
-  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=1ABC9C&text_color=6B7280&border_color=B8E0D8&icon_color=16A085&chart_color=1ABC9C&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
+  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=A78BFA&text_color=9CA3AF&border_color=DDD6FE&icon_color=8B5CF6&chart_color=A78BFA&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
 </p>
 
 <p align="center">
-  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=1ABC9C&text_color=6B7280&border_color=B8E0D8&icon_color=16A085&chart_color=1ABC9C&animation=sequence&duration=5.0" alt="Artem's productive time" />
+  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=A78BFA&text_color=9CA3AF&border_color=DDD6FE&icon_color=8B5CF6&chart_color=A78BFA&animation=sequence&duration=5.0" alt="Artem's productive time" />
 </p>
 
 
@@ -71,15 +71,15 @@
 <br />
 
 <p align="center">
-  <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=00000000&border=B8E0D8&stroke=B8E0D8&ring=1ABC9C&fire=1ABC9C&currStreakNum=6B7280&sideNums=6B7280&currStreakLabel=1ABC9C&sideLabels=1ABC9C&dates=6B7280&short_numbers=true" />
+  <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=00000000&border=DDD6FE&stroke=DDD6FE&ring=A78BFA&fire=A78BFA&currStreakNum=9CA3AF&sideNums=9CA3AF&currStreakLabel=A78BFA&sideLabels=A78BFA&dates=9CA3AF&short_numbers=true" />
 </p>
 
 <p align="center">
   <a href="https://github.com/asmoorr">
-    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=1ABC9C&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
+    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=A78BFA&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
   </a>
 </p>
 
 </details>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1ABC9C&height=100&section=footer" alt="Profile footer wave" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=A78BFA&height=100&section=footer" alt="Profile footer wave" />
