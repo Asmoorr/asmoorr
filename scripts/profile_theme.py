@@ -246,8 +246,7 @@ def write_visits_cards(visits: str, output_dir: Path) -> None:
             svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="165" height="195" role="img" aria-label="{visits} GitHub visits">
   <title>{visits} GitHub visits</title>
   <rect x="0.5" y="0.5" width="164" height="194" rx="4.5" fill="#{palette['surface']}" stroke="#{palette['border']}"/>
-  <circle cx="82.5" cy="78" r="34" fill="none" stroke="#{palette['chart']}" stroke-width="6" opacity="0.22"/>
-  <circle cx="82.5" cy="78" r="34" fill="none" stroke="#{palette['chart']}" stroke-width="6" stroke-linecap="round" stroke-dasharray="148 66" transform="rotate(-90 82.5 78)"/>
+  <circle cx="82.5" cy="78" r="34" fill="none" stroke="#{palette['chart']}" stroke-width="6"/>
   <text x="82.5" y="88" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="27" font-weight="700" fill="#{palette['text']}">{visits}</text>
   <text x="82.5" y="148" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="14" fill="#{palette['text_muted']}">GitHub visits</text>
 </svg>'''

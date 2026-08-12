@@ -3,8 +3,8 @@
 <p align="center">
   <a href="https://git.io/typing-svg">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=B69CFF&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!">
-      <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=B69CFF&center=true&vCenter=true&random=true&width=500&height=60&lines=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!;Salut!;%C2%A1Hola!;Ciao!;%E4%BD%A0%E5%A5%BD!;%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF!;%EC%95%88%EB%85%95!;%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82!;Hey!">
+      <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&random=true&width=500&height=60&lines=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!;Salut!;%C2%A1Hola!;Ciao!;%E4%BD%A0%E5%A5%BD!;%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF!;%EC%95%88%EB%85%95!;%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82!;Hey!" alt="Привет! Hallo! Salut! ¡Hola! Ciao! 你好! こんにちは! 안녕! Привіт! Hey!" />
     </picture>
   </a>
 </p>
@@ -12,8 +12,8 @@
 <p align="center">
   <a href="https://git.io/typing-svg">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=B69CFF&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula.">
-      <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula." alt="I'm Artem Trikula." />
+      <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=B69CFF&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula">
+      <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula" alt="I'm Artem Trikula" />
     </picture>
   </a>
 </p>
