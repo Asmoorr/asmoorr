@@ -64,6 +64,24 @@ def active_theme_id() -> str:
     return state["active"]
 
 
+def available_themes() -> list[dict]:
+    return [load_theme(path.stem) for path in sorted(THEMES_DIR.glob("*.json"))]
+
+
+def resolve_theme(event_name: str, issue_title: str) -> str:
+    if event_name != "issues":
+        return active_theme_id()
+
+    prefix = "[Profile Theme] "
+    if not issue_title.startswith(prefix):
+        raise ValueError(f"Unsupported issue title: {issue_title}")
+    requested_name = issue_title.removeprefix(prefix)
+    matches = [theme["id"] for theme in available_themes() if theme["name"] == requested_name]
+    if len(matches) != 1:
+        raise ValueError(f"Unknown or duplicated profile theme name: {requested_name}")
+    return matches[0]
+
+
 def replace_parameter(url: str, name: str, value: str) -> str:
     pattern = rf"([?&]{re.escape(name)}=)[^&\"\s]+"
     updated, count = re.subn(pattern, rf"\g<1>{value}", url)
@@ -240,13 +258,19 @@ def main() -> None:
     verify_parser.add_argument("--theme-id")
     verify_parser.add_argument("paths", nargs="+", type=Path)
 
+    resolve_parser = subparsers.add_parser("resolve")
+    resolve_parser.add_argument("--event-name", required=True)
+    resolve_parser.add_argument("--issue-title", default="")
+
     args = parser.parse_args()
     if args.command == "apply":
         apply_theme(args.theme_id)
     elif args.command == "recolor-breakout":
         recolor_breakout(args.paths, args.theme_id)
-    else:
+    elif args.command == "verify-breakout":
         verify_breakout(args.paths, args.theme_id)
+    else:
+        print(f"id={resolve_theme(args.event_name, args.issue_title)}")
 
 
 if __name__ == "__main__":

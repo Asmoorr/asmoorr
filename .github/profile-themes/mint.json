@@ -6,19 +6,15 @@
       "canvas": "FFFFFF",
       "surface": "F6F8FA",
       "border": "D1D9E0",
-
       "text": "1F2328",
       "text_muted": "59636E",
-
       "accent": "087F6D",
       "accent_emphasis": "066B5D",
       "accent_muted": "C8E9E2",
       "accent_surface": "EAF7F4",
       "on_accent": "FFFFFF",
-
       "chart": "169D87",
       "chart_muted": "8FD6C7",
-
       "breakout": [
         "EFF8F6",
         "C9EAE3",
@@ -31,19 +27,15 @@
       "canvas": "0D1117",
       "surface": "161B22",
       "border": "30363D",
-
       "text": "E6EDF3",
       "text_muted": "8B949E",
-
       "accent": "39D0B4",
       "accent_emphasis": "087F6D",
       "accent_muted": "285E55",
       "accent_surface": "153A35",
       "on_accent": "FFFFFF",
-
       "chart": "2BC4A8",
       "chart_muted": "1A5D53",
-
       "breakout": [
         "151B23",
         "153A35",

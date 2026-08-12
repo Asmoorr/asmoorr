@@ -19,8 +19,7 @@ jobs:
   update-profile:
     if: >-
       github.event_name != 'issues' ||
-      github.event.issue.title == '[Profile Theme] Mint Circuit' ||
-      github.event.issue.title == '[Profile Theme] Violet Dusk'
+      startsWith(github.event.issue.title, '[Profile Theme] ')
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -34,21 +33,10 @@ jobs:
 
       - name: Resolve requested theme
         id: theme
-        shell: bash
         env:
           EVENT_NAME: ${{ github.event_name }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
-        run: |
-          if [[ "$EVENT_NAME" == "issues" ]]; then
-            case "$ISSUE_TITLE" in
-              "[Profile Theme] Mint Circuit") theme="mint" ;;
-              "[Profile Theme] Violet Dusk") theme="violet" ;;
-              *) exit 1 ;;
-            esac
-          else
-            theme="$(python -c 'import json; print(json.load(open(".github/profile-theme.json"))["active"])')"
-          fi
-          echo "id=$theme" >> "$GITHUB_OUTPUT"
+        run: python scripts/profile_theme.py resolve --event-name "$EVENT_NAME" --issue-title "$ISSUE_TITLE" >> "$GITHUB_OUTPUT"
 
       - name: Apply selected theme
         if: github.event_name == 'issues'

@@ -1,0 +1,48 @@
+{
+  "id": "terracotta",
+  "name": "Terracotta Dunes",
+  "colors": {
+    "light": {
+      "canvas": "FFFCF7",
+      "surface": "F8F0E5",
+      "border": "DDCDBD",
+      "text": "3F2922",
+      "text_muted": "745B50",
+      "accent": "9A3F24",
+      "accent_emphasis": "7D301C",
+      "accent_muted": "E8B9A2",
+      "accent_surface": "F9E8DD",
+      "on_accent": "FFFFFF",
+      "chart": "B95634",
+      "chart_muted": "D99B7C",
+      "breakout": [
+        "FBF2E9",
+        "EFD8C7",
+        "DDA98C",
+        "C46B45",
+        "963A22"
+      ]
+    },
+    "dark": {
+      "canvas": "12100F",
+      "surface": "1D1917",
+      "border": "49362F",
+      "text": "F4EBDD",
+      "text_muted": "BDA99A",
+      "accent": "FF8A65",
+      "accent_emphasis": "A64228",
+      "accent_muted": "6E392C",
+      "accent_surface": "35221D",
+      "on_accent": "FFFFFF",
+      "chart": "ED7654",
+      "chart_muted": "7D4333",
+      "breakout": [
+        "1D1917",
+        "3B2721",
+        "673A2E",
+        "A95238",
+        "FF8A65"
+      ]
+    }
+  }
+}

@@ -1,6 +1,10 @@
 <!-- profile-theme: mint -->
 
 <p align="center">
+  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-mint.yml"><img width="19%" src="https://img.shields.io/badge/Mint_Circuit-087F6D?style=for-the-badge" alt="Switch to Mint Circuit" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-violet.yml"><img width="19%" src="https://img.shields.io/badge/Violet_Dusk-6E40C9?style=for-the-badge" alt="Switch to Violet Dusk" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-graphite.yml"><img width="19%" src="https://img.shields.io/badge/Graphite_Alloy-0969DA?style=for-the-badge" alt="Switch to Graphite Alloy" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-bourbon.yml"><img width="19%" src="https://img.shields.io/badge/Bourbon_Vanilla-7A4D00?style=for-the-badge" alt="Switch to Bourbon Vanilla" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-terracotta.yml"><img width="19%" src="https://img.shields.io/badge/Terracotta_Dunes-9A3F24?style=for-the-badge" alt="Switch to Terracotta Dunes" /></a>
+</p>
+
+<p align="center">
   <a href="https://git.io/typing-svg">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=39D0B4&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!">
@@ -26,24 +30,6 @@
     </picture>
   </a>
 </p>
-
-<details open>
-<summary><strong>Choose profile theme</strong> 🎨</summary>
-
-<br />
-
-<p align="center">
-  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-mint.yml">
-    <img src="https://img.shields.io/badge/Mint_Circuit-1ABC9C?style=for-the-badge" alt="Switch to Mint Circuit" />
-  </a>
-  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-violet.yml">
-    <img src="https://img.shields.io/badge/Violet_Dusk-A78BFA?style=for-the-badge" alt="Switch to Violet Dusk" />
-  </a>
-</p>
-
-<p align="center"><sub>The selected theme is applied globally after submitting the request.</sub></p>
-
-</details>
 
 <p align="center">
   <picture>

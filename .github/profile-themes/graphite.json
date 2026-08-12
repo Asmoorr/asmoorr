@@ -1,0 +1,48 @@
+{
+  "id": "graphite",
+  "name": "Graphite Alloy",
+  "colors": {
+    "light": {
+      "canvas": "FFFFFF",
+      "surface": "F5F6F7",
+      "border": "D0D7DE",
+      "text": "1F2328",
+      "text_muted": "59636E",
+      "accent": "0969DA",
+      "accent_emphasis": "0550AE",
+      "accent_muted": "B6D7FA",
+      "accent_surface": "EAF4FF",
+      "on_accent": "FFFFFF",
+      "chart": "218BFF",
+      "chart_muted": "80BFFF",
+      "breakout": [
+        "EDF6FF",
+        "B6D7FA",
+        "80BFFF",
+        "218BFF",
+        "0550AE"
+      ]
+    },
+    "dark": {
+      "canvas": "0D1117",
+      "surface": "161B22",
+      "border": "30363D",
+      "text": "E6EDF3",
+      "text_muted": "8B949E",
+      "accent": "58A6FF",
+      "accent_emphasis": "1F6FEB",
+      "accent_muted": "264F78",
+      "accent_surface": "17263A",
+      "on_accent": "FFFFFF",
+      "chart": "388BFD",
+      "chart_muted": "264F78",
+      "breakout": [
+        "151B23",
+        "17263A",
+        "1F4164",
+        "276DB5",
+        "58A6FF"
+      ]
+    }
+  }
+}
