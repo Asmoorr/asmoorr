@@ -52,7 +52,7 @@ jobs:
 
       - name: Apply selected theme
         if: github.event_name == 'issues'
-        run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}" --cache-key "${{ github.run_id }}"
+        run: python scripts/profile_theme.py apply "${{ steps.theme.outputs.id }}"
 
       - name: Generate Breakout contribution graph
         uses: abozanona/pacman-contribution-graph@main
@@ -62,7 +62,18 @@ jobs:
           hide_month_labels: true
 
       - name: Apply selected theme to Breakout
-        run: python scripts/profile_theme.py recolor-breakout --theme-id "${{ steps.theme.outputs.id }}" dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
+        shell: bash
+        run: |
+          for theme_file in .github/profile-themes/*.json; do
+            theme="$(basename "$theme_file" .json)"
+            light="dist/breakout-contribution-graph-${theme}.svg"
+            dark="dist/breakout-contribution-graph-${theme}-dark.svg"
+            cp dist/breakout-contribution-graph.svg "$light"
+            cp dist/breakout-contribution-graph-dark.svg "$dark"
+            python scripts/profile_theme.py recolor-breakout --theme-id "$theme" "$light" "$dark"
+            python scripts/profile_theme.py verify-breakout --theme-id "$theme" "$light" "$dark"
+          done
+          rm dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
 
       - name: Publish Breakout contribution graph
         uses: crazy-max/ghaction-github-pages@v3.1.0
@@ -73,7 +84,34 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit profile theme and cache key
+      - name: Verify published themed Breakout files
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          THEME: ${{ steps.theme.outputs.id }}
+        run: |
+          mkdir -p verified-output
+          for suffix in "" "-dark"; do
+            file="breakout-contribution-graph-${THEME}${suffix}.svg"
+            for attempt in {1..5}; do
+              if gh api \
+                -H "Accept: application/vnd.github.raw+json" \
+                "repos/${GITHUB_REPOSITORY}/contents/${file}?ref=pacman-output" \
+                > "verified-output/${file}"; then
+                break
+              fi
+              if [[ "$attempt" == "5" ]]; then
+                echo "::error::Published file was not available through the GitHub API: ${file}"
+                exit 1
+              fi
+              sleep 2
+            done
+          done
+          python scripts/profile_theme.py verify-breakout --theme-id "$THEME" \
+            "verified-output/breakout-contribution-graph-${THEME}.svg" \
+            "verified-output/breakout-contribution-graph-${THEME}-dark.svg"
+
+      - name: Commit selected profile theme
         if: github.event_name == 'issues'
         shell: bash
         run: |

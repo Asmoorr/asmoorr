@@ -81,7 +81,25 @@ def set_parameter(url: str, name: str, value: str) -> str:
     return f"{url}{separator}{name}={value}"
 
 
-def update_widget_url(url: str, palette: dict, cache_key: str | None = None) -> str:
+def update_breakout_url(url: str, theme_id: str) -> str:
+    if "/pacman-output/breakout-contribution-graph" not in url:
+        return url
+
+    mode_suffix = "-dark" if "-dark.svg" in url else ""
+    themed_name = f"breakout-contribution-graph-{theme_id}{mode_suffix}.svg"
+    url = re.sub(
+        r"breakout-contribution-graph(?:-[a-z0-9-]+)?\.svg",
+        themed_name,
+        url,
+        count=1,
+    )
+    # raw.githubusercontent.com caches branch-based assets for about five minutes
+    # and ignores query parameters in its cache key. A theme-specific pathname is
+    # therefore required; keeping ?v= or ?game= would only obscure that behavior.
+    return url.split("?", maxsplit=1)[0]
+
+
+def update_widget_url(url: str, palette: dict) -> str:
     mappings: dict[str, str] = {}
 
     if "readme-typing-svg.demolab.com" in url:
@@ -122,14 +140,12 @@ def update_widget_url(url: str, palette: dict, cache_key: str | None = None) -> 
         mappings = {"color": palette["accent"]}
 
     for name, value in mappings.items():
-        url = replace_parameter(url, name, value)
+        url = set_parameter(url, name, value)
 
-    if cache_key and "/pacman-output/breakout-contribution-graph" in url:
-        url = set_parameter(url, "v", cache_key)
     return url
 
 
-def apply_theme(theme_id: str, cache_key: str | None = None) -> None:
+def apply_theme(theme_id: str) -> None:
     theme = load_theme(theme_id)
     readme = README_PATH.read_text(encoding="utf-8")
 
@@ -149,7 +165,9 @@ def apply_theme(theme_id: str, cache_key: str | None = None) -> None:
         updated_lines.append(
             re.sub(
                 r"https://[^\"\s>]+",
-                lambda match: update_widget_url(match.group(0), palette, cache_key),
+                lambda match: update_breakout_url(
+                    update_widget_url(match.group(0), palette), theme_id
+                ),
                 line,
             )
         )
@@ -180,23 +198,47 @@ def recolor_breakout(paths: list[Path], theme_id: str | None = None) -> None:
         recolor_svg(path, source, palette)
 
 
+def verify_breakout(paths: list[Path], theme_id: str | None = None) -> None:
+    theme = load_theme(theme_id or active_theme_id())
+    for path in paths:
+        if not path.is_file():
+            raise ValueError(f"Breakout file is missing: {path}")
+        mode = "dark" if "-dark" in path.stem else "light"
+        content = path.read_text(encoding="utf-8").upper()
+        palette = theme["colors"][mode]["breakout"]
+        source = DARK_SOURCE if mode == "dark" else LIGHT_SOURCE
+        remaining_source = [color for color in source if f"#{color}" in content]
+        applied = [color for color in palette if f"#{color.upper()}" in content]
+        if remaining_source or not applied:
+            raise ValueError(
+                f"{path} was not fully recolored for {theme_id or active_theme_id()} "
+                f"{mode}; source colors: {', '.join(remaining_source) or 'none'}, "
+                f"theme colors found: {', '.join(applied) or 'none'}"
+            )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     apply_parser = subparsers.add_parser("apply")
     apply_parser.add_argument("theme_id")
-    apply_parser.add_argument("--cache-key")
 
     recolor_parser = subparsers.add_parser("recolor-breakout")
     recolor_parser.add_argument("--theme-id")
     recolor_parser.add_argument("paths", nargs="+", type=Path)
 
+    verify_parser = subparsers.add_parser("verify-breakout")
+    verify_parser.add_argument("--theme-id")
+    verify_parser.add_argument("paths", nargs="+", type=Path)
+
     args = parser.parse_args()
     if args.command == "apply":
-        apply_theme(args.theme_id, args.cache_key)
-    else:
+        apply_theme(args.theme_id)
+    elif args.command == "recolor-breakout":
         recolor_breakout(args.paths, args.theme_id)
+    else:
+        verify_breakout(args.paths, args.theme_id)
 
 
 if __name__ == "__main__":

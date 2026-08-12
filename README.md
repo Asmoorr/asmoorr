@@ -2,19 +2,19 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=9676F0&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!" alt="Welcome! Привет! Hallo!" />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&random=true&width=500&height=60&lines=Welcome!;%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!;Hallo!&background=FFFFFF" alt="Welcome! Привет! Hallo!" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=9676F0&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula." alt="I'm Artem Trikula." />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&width=500&height=60&lines=I%27m+Artem+Trikula.&background=FFFFFF" alt="I'm Artem Trikula." />
   </a>
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=9676F0&center=true&vCenter=true&width=1000&height=60&lines=Python+Backend+Developer+%C2%B7+ITMO+University+student" alt="Python Backend Developer · ITMO University student" />
+    <img src="https://readme-typing-svg.demolab.com?font=Jura&weight=700&size=32&duration=3000&pause=1500&color=6E40C9&center=true&vCenter=true&width=1000&height=60&lines=Python+Backend+Developer+%C2%B7+ITMO+University+student&background=FFFFFF" alt="Python Backend Developer · ITMO University student" />
   </a>
 </p>
 
@@ -37,19 +37,19 @@
 </details>
 
 <p align="center">
-  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=9676F0&text_color=768390&border_color=D8CFFF&icon_color=7B4FD6&chart_color=9676F0&animation=sequence&duration=4.0" alt="Artem's GitHub profile details" />
+  <img width="800" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=asmoorr&theme=transparent&title_color=6E40C9&text_color=1F2328&border_color=D1D9E0&icon_color=6E40C9&chart_color=7957D5&animation=sequence&duration=4.0&bg_color=F6F8FA" alt="Artem's GitHub profile details" />
 </p>
 
 <p align="center">
-  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=9676F0&text_color=768390&border_color=D8CFFF&icon_color=7B4FD6&chart_color=9676F0&animation=sequence&duration=5.0" alt="Artem's productive time" />
+  <img width="403" height="255" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=asmoorr&utcOffset=3&theme=transparent&title_color=6E40C9&text_color=59636E&border_color=D1D9E0&icon_color=6E40C9&chart_color=7957D5&animation=sequence&duration=5.0&bg_color=F6F8FA" alt="Artem's productive time" />
 </p>
 
 
 
 <picture data-importer="breakout">
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph-dark.svg?game=breakout&v=31550292766">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph.svg?game=breakout&v=31550292766">
-  <img alt="Breakout contribution graph" src="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph.svg?game=breakout&v=31550292766">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph-violet-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph-violet.svg">
+  <img alt="Breakout contribution graph" src="https://raw.githubusercontent.com/Asmoorr/Asmoorr/pacman-output/breakout-contribution-graph-violet.svg">
 </picture>
 
 <details open>
@@ -71,15 +71,15 @@
 <br />
 
 <p align="center">
-  <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=00000000&border=D8CFFF&stroke=D8CFFF&ring=9676F0&fire=9676F0&currStreakNum=768390&sideNums=768390&currStreakLabel=9676F0&sideLabels=9676F0&dates=768390&short_numbers=true" />
+  <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=F6F8FA&border=D1D9E0&stroke=BDAAF2&ring=7957D5&fire=6E40C9&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=59636E&sideLabels=59636E&dates=59636E&short_numbers=true" />
 </p>
 
 <p align="center">
   <a href="https://github.com/asmoorr">
-    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=9676F0&logoColor=white&style=for-the-badge" alt="GitHub profile visits" />
+    <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=5930A8&logoColor=FFFFFF&style=for-the-badge" alt="GitHub profile visits" />
   </a>
 </p>
 
 </details>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=9676F0&height=100&section=footer" alt="Profile footer wave" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=6E40C9&height=100&section=footer" alt="Profile footer wave" />
