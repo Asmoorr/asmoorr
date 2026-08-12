@@ -103,13 +103,13 @@ jobs:
         if: github.event_name == 'issues'
         shell: bash
         run: |
-          if git diff --quiet -- README.md .github/profile-theme.json; then
+          if git diff --quiet -- README.md .github/profile-theme.json .github/profile-theme-active-*.svg; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md .github/profile-theme.json
-          git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme"
+          git add README.md .github/profile-theme.json .github/profile-theme-active-*.svg
+          git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme / смена темы профиля на ${{ steps.theme.outputs.id }}"
           git push origin main
 
       - name: Delete service theme issue

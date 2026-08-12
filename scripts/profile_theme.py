@@ -171,6 +171,45 @@ def update_widget_url(url: str, palette: dict) -> str:
     return url
 
 
+def update_theme_buttons(readme: str, theme_id: str, theme: dict) -> str:
+    pattern = r'(<a href="[^"]*template=theme-)([a-z0-9-]+)(\.yml"><img src=")([^"]+)(" alt="[^"]+" /></a>)'
+
+    def replace_button(match: re.Match[str]) -> str:
+        button_theme = match.group(2)
+        if button_theme == theme_id:
+            source = (
+                "https://raw.githubusercontent.com/Asmoorr/Asmoorr/"
+                f"main/.github/profile-theme-active-{theme_id}.svg"
+            )
+        else:
+            button = load_theme(button_theme)
+            label = button["name"].replace(" ", "_").replace("-", "--")
+            color = button["colors"]["light"]["accent"]
+            source = f"https://img.shields.io/badge/{label}-{color}?style=flat"
+        return f"{match.group(1)}{button_theme}{match.group(3)}{source}{match.group(5)}"
+
+    readme, count = re.subn(pattern, replace_button, readme)
+    if count != len(available_themes()):
+        raise ValueError(
+            f"README contains {count} theme buttons, expected {len(available_themes())}"
+        )
+    return readme
+
+
+def write_active_badge(theme: dict) -> Path:
+    name = theme["name"]
+    accent = theme["colors"]["light"]["accent"]
+    width = max(92, len(name) * 7 + 20)
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" role="img" aria-label="Active theme: {name}">
+  <title>Active theme: {name}</title>
+  <rect x="1" y="1" width="{width - 2}" height="18" rx="3" fill="transparent" stroke="#{accent}" stroke-width="2"/>
+  <text x="{width / 2:g}" y="14" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" fill="#{accent}">{name}</text>
+</svg>'''
+    path = ROOT / ".github" / f"profile-theme-active-{theme['id']}.svg"
+    path.write_text(svg, encoding="utf-8", newline="\n")
+    return path
+
+
 def apply_theme(theme_id: str) -> None:
     theme = load_theme(theme_id)
     readme = README_PATH.read_text(encoding="utf-8")
@@ -197,8 +236,10 @@ def apply_theme(theme_id: str) -> None:
                 line,
             )
         )
-    readme = "".join(updated_lines)
+    readme = update_theme_buttons("".join(updated_lines), theme_id, theme)
     README_PATH.write_text(readme, encoding="utf-8", newline="\n")
+    for available_theme in available_themes():
+        write_active_badge(available_theme)
     ACTIVE_THEME_PATH.write_text(
         json.dumps({"active": theme_id}, indent=2) + "\n",
         encoding="utf-8",

@@ -1,7 +1,7 @@
 <!-- profile-theme: graphite -->
 
-<p align="center">
-  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-mint.yml"><img width="19%" src="https://img.shields.io/badge/Mint_Circuit-087F6D?style=for-the-badge" alt="Switch to Mint Circuit" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-violet.yml"><img width="19%" src="https://img.shields.io/badge/Violet_Dusk-6E40C9?style=for-the-badge" alt="Switch to Violet Dusk" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-graphite.yml"><img width="19%" src="https://img.shields.io/badge/Graphite_Alloy-0969DA?style=for-the-badge" alt="Switch to Graphite Alloy" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-bourbon.yml"><img width="19%" src="https://img.shields.io/badge/Bourbon_Vanilla-7A4D00?style=for-the-badge" alt="Switch to Bourbon Vanilla" /></a><a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-terracotta.yml"><img width="19%" src="https://img.shields.io/badge/Terracotta_Dunes-9A3F24?style=for-the-badge" alt="Switch to Terracotta Dunes" /></a>
+<p align="left">
+  <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-mint.yml"><img src="https://img.shields.io/badge/Mint_Circuit-087F6D?style=flat" alt="Switch to Mint Circuit" /></a> <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-violet.yml"><img src="https://img.shields.io/badge/Violet_Dusk-6E40C9?style=flat" alt="Switch to Violet Dusk" /></a> <a href="https://github.com/Asmoorr/Asmoorr/issues/new?template=theme-graphite.yml"><img src="https://raw.githubusercontent.com/Asmoorr/Asmoorr/main/.github/profile-theme-active-graphite.svg" alt="Switch to Graphite Alloy" /></a>
 </p>
 
 <p align="center">
@@ -54,7 +54,21 @@
 </picture>
 
 <details open>
-<summary><strong>Tech Stack</strong> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Green%20Heart.png" alt="Green Heart" width="25" height="25" /></summary>
+<summary><strong>GitHub Profile Stats</strong></summary>
+
+<br />
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=161B22&border=30363D&stroke=264F78&ring=388BFD&fire=58A6FF&currStreakNum=E6EDF3&sideNums=E6EDF3&currStreakLabel=8B949E&sideLabels=8B949E&dates=8B949E&short_numbers=true">
+    <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=F5F6F7&border=D0D7DE&stroke=80BFFF&ring=218BFF&fire=0969DA&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=59636E&sideLabels=59636E&dates=59636E&short_numbers=true" />
+  </picture>
+</p>
+
+</details>
+
+<details open>
+<summary><strong>Tech Stack</strong></summary>
 
 <br />
 
@@ -66,24 +80,10 @@
 
 </details>
 
-<details open>
-<summary><strong>GitHub Profile Stats</strong> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Alien%20Monster.png" alt="Alien Monster" width="25" height="25" /></summary>
-
-<br />
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=161B22&border=30363D&stroke=264F78&ring=388BFD&fire=58A6FF&currStreakNum=E6EDF3&sideNums=E6EDF3&currStreakLabel=8B949E&sideLabels=8B949E&dates=8B949E&short_numbers=true">
-    <img alt="Asmoorr's GitHub streak" src="https://github-readme-streak-stats-eight.vercel.app/?user=Asmoorr&background=F5F6F7&border=D0D7DE&stroke=80BFFF&ring=218BFF&fire=0969DA&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=59636E&sideLabels=59636E&dates=59636E&short_numbers=true" />
-  </picture>
-</p>
-
 <p align="center">
   <a href="https://github.com/asmoorr">
     <img src="https://komarev.com/ghpvc/?username=asmoorr&logo=GitHub&label=github%20visits&color=0550AE&logoColor=FFFFFF&style=for-the-badge" alt="GitHub profile visits" />
   </a>
 </p>
-
-</details>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0969DA&height=100&section=footer" alt="Profile footer wave" />
