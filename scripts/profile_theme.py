@@ -81,6 +81,16 @@ def set_parameter(url: str, name: str, value: str) -> str:
     return f"{url}{separator}{name}={value}"
 
 
+def remove_parameter(url: str, name: str) -> str:
+    pattern = rf"([?&]){re.escape(name)}=[^&\"\s]+&?"
+    url = re.sub(
+        pattern,
+        lambda match: match.group(1) if match.group(0).endswith("&") else "",
+        url,
+    )
+    return url.replace("?&", "?").rstrip("?&")
+
+
 def update_breakout_url(url: str, theme_id: str) -> str:
     if "/pacman-output/breakout-contribution-graph" not in url:
         return url
@@ -103,10 +113,8 @@ def update_widget_url(url: str, palette: dict) -> str:
     mappings: dict[str, str] = {}
 
     if "readme-typing-svg.demolab.com" in url:
-        mappings = {
-            "color": palette["accent"],
-            "background": palette["canvas"],
-        }
+        mappings = {"color": palette["accent"]}
+        url = remove_parameter(url, "background")
     elif "github-profile-summary-cards.vercel.app" in url:
         mappings = {
             "bg_color": palette["surface"],
