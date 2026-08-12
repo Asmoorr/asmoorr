@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="51" role="img" aria-label="Switch to Graphite Alloy">
+  <title>Switch to Graphite Alloy</title>
+  <rect x="0.5" y="0.5" width="139" height="50" rx="4.5" fill="#17263A" stroke="#58A6FF"/>
+  <rect x="1" y="1" width="4" height="49" rx="2" fill="#58A6FF"/>
+  <text x="70" y="30" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="13" font-weight="600" fill="#58A6FF">Graphite Alloy</text>
+</svg>

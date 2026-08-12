@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
@@ -161,6 +162,7 @@ def update_widget_url(url: str, palette: dict) -> str:
         mappings = {
             "color": palette["accent_emphasis"],
             "logoColor": palette["on_accent"],
+            "style": "flat",
         }
     elif "capsule-render.vercel.app" in url:
         mappings = {"color": palette["accent"]}
@@ -171,43 +173,74 @@ def update_widget_url(url: str, palette: dict) -> str:
     return url
 
 
-def update_theme_buttons(readme: str, theme_id: str, theme: dict) -> str:
-    pattern = r'(<a href="[^"]*template=theme-)([a-z0-9-]+)(\.yml"><img src=")([^"]+)(" alt="[^"]+" /></a>)'
+def update_theme_controls(readme: str, theme_id: str) -> str:
+    pattern = r"profile-theme-control-[a-z0-9-]+-([a-z0-9-]+)(-dark)?\.svg"
+    return re.sub(
+        pattern,
+        lambda match: (
+            f"profile-theme-control-{theme_id}-{match.group(1)}"
+            f"{match.group(2) or ''}.svg"
+        ),
+        readme,
+    )
 
-    def replace_button(match: re.Match[str]) -> str:
-        button_theme = match.group(2)
-        if button_theme == theme_id:
-            source = (
-                "https://raw.githubusercontent.com/Asmoorr/Asmoorr/"
-                f"main/.github/profile-theme-active-{theme_id}.svg"
+
+def write_theme_controls(selected_theme: dict) -> list[Path]:
+    paths = []
+    for mode in ("light", "dark"):
+        palette = selected_theme["colors"][mode]
+        for button in available_themes():
+            active = button["id"] == selected_theme["id"]
+            fill = palette["accent_surface"] if active else palette["surface"]
+            border = palette["accent"] if active else palette["border"]
+            text = palette["accent"] if active else palette["text_muted"]
+            indicator = (
+                f'<rect x="1" y="1" width="4" height="49" rx="2" fill="#{palette["accent"]}"/>'
+                if active else ""
             )
-        else:
-            button = load_theme(button_theme)
-            label = button["name"].replace(" ", "_").replace("-", "--")
-            color = button["colors"]["light"]["accent"]
-            source = f"https://img.shields.io/badge/{label}-{color}?style=flat"
-        return f"{match.group(1)}{button_theme}{match.group(3)}{source}{match.group(5)}"
-
-    readme, count = re.subn(pattern, replace_button, readme)
-    if count != len(available_themes()):
-        raise ValueError(
-            f"README contains {count} theme buttons, expected {len(available_themes())}"
-        )
-    return readme
-
-
-def write_active_badge(theme: dict) -> Path:
-    name = theme["name"]
-    accent = theme["colors"]["light"]["accent"]
-    width = max(92, len(name) * 7 + 20)
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="20" role="img" aria-label="Active theme: {name}">
-  <title>Active theme: {name}</title>
-  <rect x="1" y="1" width="{width - 2}" height="18" rx="3" fill="transparent" stroke="#{accent}" stroke-width="2"/>
-  <text x="{width / 2:g}" y="14" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" fill="#{accent}">{name}</text>
+            svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="140" height="51" role="img" aria-label="Switch to {button['name']}">
+  <title>Switch to {button['name']}</title>
+  <rect x="0.5" y="0.5" width="139" height="50" rx="4.5" fill="#{fill}" stroke="#{border}"/>
+  {indicator}
+  <text x="70" y="30" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="13" font-weight="600" fill="#{text}">{button['name']}</text>
 </svg>'''
-    path = ROOT / ".github" / f"profile-theme-active-{theme['id']}.svg"
-    path.write_text(svg, encoding="utf-8", newline="\n")
-    return path
+            suffix = "-dark" if mode == "dark" else ""
+            path = ROOT / ".github" / (
+                f"profile-theme-control-{selected_theme['id']}-{button['id']}{suffix}.svg"
+            )
+            path.write_text(svg, encoding="utf-8", newline="\n")
+            paths.append(path)
+    return paths
+
+
+def extract_visits(svg_path: Path) -> str:
+    root = ET.parse(svg_path).getroot()
+    values = []
+    for element in root.iter():
+        text = (element.text or "").strip()
+        if re.fullmatch(r"[0-9][0-9,.]*[KMB]?", text, flags=re.IGNORECASE):
+            values.append(text)
+    if not values:
+        raise ValueError(f"Could not extract profile visits from {svg_path}")
+    return values[-1]
+
+
+def write_visits_cards(visits: str, output_dir: Path) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for theme in available_themes():
+        for mode in ("light", "dark"):
+            palette = theme["colors"][mode]
+            svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="140" height="165" role="img" aria-label="{visits} GitHub visits">
+  <title>{visits} GitHub visits</title>
+  <rect x="0.5" y="0.5" width="139" height="164" rx="4.5" fill="#{palette['surface']}" stroke="#{palette['border']}"/>
+  <circle cx="70" cy="65" r="27" fill="none" stroke="#{palette['chart']}" stroke-width="5" opacity="0.22"/>
+  <circle cx="70" cy="65" r="27" fill="none" stroke="#{palette['chart']}" stroke-width="5" stroke-linecap="round" stroke-dasharray="118 52" transform="rotate(-90 70 65)"/>
+  <text x="70" y="74" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="24" font-weight="700" fill="#{palette['text']}">{visits}</text>
+  <text x="70" y="120" text-anchor="middle" font-family="Segoe UI,Ubuntu,sans-serif" font-size="14" fill="#{palette['text_muted']}">GitHub visits</text>
+</svg>'''
+            suffix = "-dark" if mode == "dark" else ""
+            path = output_dir / f"profile-visits-{theme['id']}{suffix}.svg"
+            path.write_text(svg, encoding="utf-8", newline="\n")
 
 
 def apply_theme(theme_id: str) -> None:
@@ -236,10 +269,10 @@ def apply_theme(theme_id: str) -> None:
                 line,
             )
         )
-    readme = update_theme_buttons("".join(updated_lines), theme_id, theme)
+    readme = update_theme_controls("".join(updated_lines), theme_id)
     README_PATH.write_text(readme, encoding="utf-8", newline="\n")
-    for available_theme in available_themes():
-        write_active_badge(available_theme)
+    for selected_theme in available_themes():
+        write_theme_controls(selected_theme)
     ACTIVE_THEME_PATH.write_text(
         json.dumps({"active": theme_id}, indent=2) + "\n",
         encoding="utf-8",
@@ -303,6 +336,10 @@ def main() -> None:
     resolve_parser.add_argument("--event-name", required=True)
     resolve_parser.add_argument("--issue-title", default="")
 
+    visits_parser = subparsers.add_parser("generate-visits")
+    visits_parser.add_argument("--visits-svg", required=True, type=Path)
+    visits_parser.add_argument("--output-dir", required=True, type=Path)
+
     args = parser.parse_args()
     if args.command == "apply":
         apply_theme(args.theme_id)
@@ -310,8 +347,10 @@ def main() -> None:
         recolor_breakout(args.paths, args.theme_id)
     elif args.command == "verify-breakout":
         verify_breakout(args.paths, args.theme_id)
-    else:
+    elif args.command == "resolve":
         print(f"id={resolve_theme(args.event_name, args.issue_title)}")
+    else:
+        write_visits_cards(extract_visits(args.visits_svg), args.output_dir)
 
 
 if __name__ == "__main__":
