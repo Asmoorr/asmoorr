@@ -63,6 +63,16 @@ jobs:
           done
           rm dist/breakout-contribution-graph.svg dist/breakout-contribution-graph-dark.svg
 
+      - name: Generate profile visits cards
+        shell: bash
+        run: |
+          curl --fail --silent --show-error \
+            "https://komarev.com/ghpvc/?username=${{ github.repository_owner }}&abbreviated=true" \
+            --output profile-visits-counter.svg
+          python scripts/profile_theme.py generate-visits \
+            --visits-svg profile-visits-counter.svg \
+            --output-dir dist
+
       - name: Publish Breakout contribution graph
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
@@ -72,7 +82,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify published themed Breakout files
+      - name: Verify published themed profile files
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -99,16 +109,25 @@ jobs:
             "verified-output/breakout-contribution-graph-${THEME}.svg" \
             "verified-output/breakout-contribution-graph-${THEME}-dark.svg"
 
+          for suffix in "" "-dark"; do
+            file="profile-visits-${THEME}${suffix}.svg"
+            gh api \
+              -H "Accept: application/vnd.github.raw+json" \
+              "repos/${GITHUB_REPOSITORY}/contents/${file}?ref=pacman-output" \
+              > "verified-output/${file}"
+            grep -q "GitHub visits" "verified-output/${file}"
+          done
+
       - name: Commit selected profile theme
         if: github.event_name == 'issues'
         shell: bash
         run: |
-          if git diff --quiet -- README.md .github/profile-theme.json .github/profile-theme-active-*.svg; then
+          if git diff --quiet -- README.md .github/profile-theme.json .github/profile-theme-control-*.svg; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md .github/profile-theme.json .github/profile-theme-active-*.svg
+          git add README.md .github/profile-theme.json .github/profile-theme-control-*.svg
           git commit -m "chore(profile): switch to ${{ steps.theme.outputs.id }} theme / смена темы профиля на ${{ steps.theme.outputs.id }}"
           git push origin main
 
