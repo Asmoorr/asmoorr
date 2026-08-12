@@ -2,23 +2,55 @@
   "id": "violet",
   "name": "Violet Dusk",
   "colors": {
-    "primary": "9676F0",
-    "strong": "7B4FD6",
-    "soft": "D8CFFF",
-    "text": "768390",
-    "breakout_light": [
-      "F1EDFF",
-      "DED5FA",
-      "C3B2F5",
-      "9B7DE8",
-      "7950D8"
-    ],
-    "breakout_dark": [
-      "151B23",
-      "2B2347",
-      "49367A",
-      "704FBE",
-      "A78BFA"
-    ]
+    "light": {
+      "canvas": "FFFFFF",
+      "surface": "F6F8FA",
+      "border": "D1D9E0",
+
+      "text": "1F2328",
+      "text_muted": "59636E",
+
+      "accent": "6E40C9",
+      "accent_emphasis": "5930A8",
+      "accent_muted": "D8CFFF",
+      "accent_surface": "F1EDFF",
+      "on_accent": "FFFFFF",
+
+      "chart": "7957D5",
+      "chart_muted": "BDAAF2",
+
+      "breakout": [
+        "F1EDFF",
+        "DED5FA",
+        "BDAAF2",
+        "9272E2",
+        "6E40C9"
+      ]
+    },
+    "dark": {
+      "canvas": "0D1117",
+      "surface": "161B22",
+      "border": "30363D",
+
+      "text": "E6EDF3",
+      "text_muted": "8B949E",
+
+      "accent": "B69CFF",
+      "accent_emphasis": "8250DF",
+      "accent_muted": "59438F",
+      "accent_surface": "2B2347",
+      "on_accent": "FFFFFF",
+
+      "chart": "A78BFA",
+      "chart_muted": "59438F",
+
+      "breakout": [
+        "151B23",
+        "2B2347",
+        "49367A",
+        "7657C5",
+        "B69CFF"
+      ]
+    }
   }
 }

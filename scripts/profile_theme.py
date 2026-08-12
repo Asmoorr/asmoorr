@@ -16,6 +16,21 @@ README_PATH = ROOT / "README.md"
 
 LIGHT_SOURCE = ["EBEDF0", "9BE9A8", "40C463", "30A14E", "216E39"]
 DARK_SOURCE = ["161B22", "0E4429", "006D32", "26A641", "39D353"]
+REQUIRED_COLOR_TOKENS = {
+    "canvas",
+    "surface",
+    "border",
+    "text",
+    "text_muted",
+    "accent",
+    "accent_emphasis",
+    "accent_muted",
+    "accent_surface",
+    "on_accent",
+    "chart",
+    "chart_muted",
+    "breakout",
+}
 
 
 def load_theme(theme_id: str) -> dict:
@@ -30,6 +45,17 @@ def load_theme(theme_id: str) -> dict:
     theme = json.loads(path.read_text(encoding="utf-8"))
     if theme.get("id") != theme_id:
         raise ValueError(f"Theme id mismatch in {path}")
+
+    colors = theme.get("colors", {})
+    for mode in ("light", "dark"):
+        palette = colors.get(mode)
+        if not isinstance(palette, dict):
+            raise ValueError(f"Theme '{theme_id}' is missing the '{mode}' palette")
+        missing = REQUIRED_COLOR_TOKENS - palette.keys()
+        if missing:
+            raise ValueError(f"Theme '{theme_id}' {mode} palette is missing: {', '.join(sorted(missing))}")
+        if len(palette["breakout"]) != 5:
+            raise ValueError(f"Theme '{theme_id}' {mode} breakout palette must contain 5 colors")
     return theme
 
 
@@ -55,33 +81,45 @@ def set_parameter(url: str, name: str, value: str) -> str:
     return f"{url}{separator}{name}={value}"
 
 
-def update_widget_url(url: str, colors: dict, cache_key: str | None = None) -> str:
+def update_widget_url(url: str, palette: dict, cache_key: str | None = None) -> str:
     mappings: dict[str, str] = {}
 
     if "readme-typing-svg.demolab.com" in url:
-        mappings = {"color": colors["primary"]}
+        mappings = {
+            "color": palette["accent"],
+            "background": palette["canvas"],
+        }
     elif "github-profile-summary-cards.vercel.app" in url:
         mappings = {
-            "title_color": colors["primary"],
-            "text_color": colors["text"],
-            "border_color": colors["soft"],
-            "icon_color": colors["strong"],
-            "chart_color": colors["primary"],
+            "bg_color": palette["surface"],
+            "title_color": palette["accent"],
+            "text_color": (
+                palette["text_muted"] if "/productive-time" in url else palette["text"]
+            ),
+            "border_color": palette["border"],
+            "icon_color": palette["accent"],
+            "chart_color": palette["chart"],
         }
     elif "github-readme-streak-stats-eight.vercel.app" in url:
         mappings = {
-            "border": colors["soft"],
-            "stroke": colors["soft"],
-            "ring": colors["primary"],
-            "fire": colors["primary"],
-            "currStreakNum": colors["text"],
-            "sideNums": colors["text"],
-            "currStreakLabel": colors["primary"],
-            "sideLabels": colors["primary"],
-            "dates": colors["text"],
+            "background": palette["surface"],
+            "border": palette["border"],
+            "stroke": palette["chart_muted"],
+            "ring": palette["chart"],
+            "fire": palette["accent"],
+            "currStreakNum": palette["text"],
+            "sideNums": palette["text"],
+            "currStreakLabel": palette["text_muted"],
+            "sideLabels": palette["text_muted"],
+            "dates": palette["text_muted"],
         }
-    elif "komarev.com/ghpvc" in url or "capsule-render.vercel.app" in url:
-        mappings = {"color": colors["primary"]}
+    elif "komarev.com/ghpvc" in url:
+        mappings = {
+            "color": palette["accent_emphasis"],
+            "logoColor": palette["on_accent"],
+        }
+    elif "capsule-render.vercel.app" in url:
+        mappings = {"color": palette["accent"]}
 
     for name, value in mappings.items():
         url = replace_parameter(url, name, value)
@@ -93,7 +131,6 @@ def update_widget_url(url: str, colors: dict, cache_key: str | None = None) -> s
 
 def apply_theme(theme_id: str, cache_key: str | None = None) -> None:
     theme = load_theme(theme_id)
-    colors = theme["colors"]
     readme = README_PATH.read_text(encoding="utf-8")
 
     readme, marker_count = re.subn(
@@ -105,11 +142,18 @@ def apply_theme(theme_id: str, cache_key: str | None = None) -> None:
     if marker_count != 1:
         raise ValueError("README profile-theme marker is missing or duplicated")
 
-    readme = re.sub(
-        r"https://[^\"\s>]+",
-        lambda match: update_widget_url(match.group(0), colors, cache_key),
-        readme,
-    )
+    updated_lines = []
+    for line in readme.splitlines(keepends=True):
+        mode = "dark" if "prefers-color-scheme: dark" in line else "light"
+        palette = theme["colors"][mode]
+        updated_lines.append(
+            re.sub(
+                r"https://[^\"\s>]+",
+                lambda match: update_widget_url(match.group(0), palette, cache_key),
+                line,
+            )
+        )
+    readme = "".join(updated_lines)
     README_PATH.write_text(readme, encoding="utf-8", newline="\n")
     ACTIVE_THEME_PATH.write_text(
         json.dumps({"active": theme_id}, indent=2) + "\n",
@@ -129,9 +173,9 @@ def recolor_svg(path: Path, source: list[str], target: list[str]) -> None:
 
 def recolor_breakout(paths: list[Path], theme_id: str | None = None) -> None:
     theme = load_theme(theme_id or active_theme_id())
-    colors = theme["colors"]
     for path in paths:
-        palette = colors["breakout_dark"] if "-dark" in path.stem else colors["breakout_light"]
+        mode = "dark" if "-dark" in path.stem else "light"
+        palette = theme["colors"][mode]["breakout"]
         source = DARK_SOURCE if "-dark" in path.stem else LIGHT_SOURCE
         recolor_svg(path, source, palette)
 
