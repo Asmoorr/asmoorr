@@ -2,11 +2,23 @@
   "id": "violet",
   "name": "Violet Dusk",
   "colors": {
-    "primary": "A78BFA",
-    "strong": "8B5CF6",
-    "soft": "DDD6FE",
-    "text": "9CA3AF",
-    "breakout_light": ["F5F3FF", "DDD6FE", "C4B5FD", "A78BFA", "8B5CF6"],
-    "breakout_dark": ["151B23", "312E81", "5B21B6", "7C3AED", "A78BFA"]
+    "primary": "9676F0",
+    "strong": "7B4FD6",
+    "soft": "D8CFFF",
+    "text": "768390",
+    "breakout_light": [
+      "F1EDFF",
+      "DED5FA",
+      "C3B2F5",
+      "9B7DE8",
+      "7950D8"
+    ],
+    "breakout_dark": [
+      "151B23",
+      "2B2347",
+      "49367A",
+      "704FBE",
+      "A78BFA"
+    ]
   }
 }

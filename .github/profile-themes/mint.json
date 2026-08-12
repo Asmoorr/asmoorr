@@ -2,11 +2,23 @@
   "id": "mint",
   "name": "Mint Circuit",
   "colors": {
-    "primary": "1ABC9C",
-    "strong": "16A085",
-    "soft": "B8E0D8",
-    "text": "6B7280",
-    "breakout_light": ["EAF7F4", "B8E0D8", "74D3BD", "1ABC9C", "16A085"],
-    "breakout_dark": ["151B23", "164A40", "167F6C", "18A98C", "1ABC9C"]
+    "primary": "148F7B",
+    "strong": "087C6C",
+    "soft": "C8E9E2",
+    "text": "768390",
+    "breakout_light": [
+      "EAF7F4",
+      "C9EAE3",
+      "8FD6C7",
+      "45B7A1",
+      "087F6D"
+    ],
+    "breakout_dark": [
+      "151B23",
+      "153A35",
+      "1A5D53",
+      "218978",
+      "2BBDA3"
+    ]
   }
 }
